@@ -99,7 +99,7 @@
     overflow-x:auto;
   }
   .pipeline-label{font-family:var(--mono); font-size:11px; color:var(--text-dimmer); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:18px;}
-  .pipe-row{display:flex; align-items:center; min-width:600px; position:relative;}
+  .pipe-row{display:flex; align-items:center; min-width:680px; position:relative;}
   .pipe-stage{flex:1; text-align:center; position:relative;}
   .pipe-node{
     width:14px; height:14px; border-radius:50%; margin:0 auto 10px;
@@ -347,8 +347,9 @@
   <header class="hero">
     <div class="eyebrow">Buffalo, NY — Open to relocate</div>
     <h1 class="name">Hariharan<br>Nadanasabapathi</h1>
-    <div class="role-line">Backend engineer building <b>services that handle sensitive data carefully</b> — and the retrieval systems on top of them</div>
-    <p class="lede">M.S. in Computer Science from the University at Buffalo, with two years across three internships in backend pipelines, reconciliation systems, and NLP retrieval. Most of my work is on healthcare data — FHIR exports, CMS claims and quality reporting — because that's where the hard questions live: <b>who's allowed to see what, what happens when a dependency dies, and where every number came from.</b> I'd rather ship one system with real numbers than five demos with none.</p>
+    <div class="role-line">Backend engineer building <b>services that handle sensitive data carefully</b> — and the retrieval systems on top of them.</div>
+    <p class="lede" style="margin-bottom:14px;">M.S. in Computer Science from the University at Buffalo, and 2+ years of internship experience building pipelines, retrieval systems, and backend services. Most of my work is on healthcare data: FHIR exports, CMS claims, quality reporting, because that's where the questions get uncomfortable. <b>Who is allowed to see this row? What does the service do when the model provider goes down? Where did that number actually come from?</b></p>
+    <p class="lede">I'd rather ship one system with real numbers than five demos with none.</p>
     <div class="hero-links">
       <a class="btn primary" href="mailto:hari.sabgee@gmail.com">Email me</a>
       <a class="btn" href="https://clinical-evidence-api.onrender.com/docs" target="_blank" rel="noopener">Live API ↗</a>
@@ -358,56 +359,48 @@
     </div>
 
     <div class="pipeline">
-      <div class="pipeline-label">// how a question becomes an answer someone can trust</div>
+      <div class="pipeline-label">// the four steps between a question and an answer you can trust</div>
       <div class="pipe-row">
         <div class="dot-travel"></div>
         <div class="pipe-stage active">
           <div class="pipe-node"></div>
           <div class="pipe-line"></div>
-          <div class="pipe-title">SCOPE</div>
-          <div class="pipe-sub">authz + Postgres RLS</div>
+          <div class="pipe-title">WHO'S ASKING</div>
+          <div class="pipe-sub">checked twice — app, then database</div>
         </div>
         <div class="pipe-stage pulse-1">
           <div class="pipe-node"></div>
           <div class="pipe-line"></div>
-          <div class="pipe-title">RETRIEVE</div>
-          <div class="pipe-sub">pgvector / BM25</div>
+          <div class="pipe-title">FIND THE EVIDENCE</div>
+          <div class="pipe-sub">pgvector and BM25, one patient only</div>
         </div>
         <div class="pipe-stage pulse-2">
           <div class="pipe-node"></div>
           <div class="pipe-line"></div>
-          <div class="pipe-title">GENERATE</div>
-          <div class="pipe-sub">grounded, cited, redacted</div>
+          <div class="pipe-title">WRITE THE ANSWER</div>
+          <div class="pipe-sub">cited, and redacted on the way out</div>
         </div>
         <div class="pipe-stage finish">
           <div class="pipe-node"></div>
-          <div class="pipe-title">VERIFY</div>
-          <div class="pipe-sub">audit log + held-out eval</div>
+          <div class="pipe-title">SHOW THE WORKING</div>
+          <div class="pipe-sub">audit log for reads, held-out eval set</div>
         </div>
       </div>
     </div>
   </header>
 
-  <div class="stats">
-    <div class="stat"><div class="num">140</div><div class="lbl">Tests passing on the deployed API — security, RLS, concurrency, degradation</div></div>
-    <div class="stat"><div class="num">194</div><div class="lbl">Eval questions with ground truth from an independent source</div></div>
-    <div class="stat"><div class="num">7,761</div><div class="lbl">Clinical notes indexed and retrieved over</div></div>
-    <div class="stat"><div class="num">90%</div><div class="lbl">Match accuracy across 500 production test queries</div></div>
-  </div>
-
-  <section id="experience" class="divider-top">
+  <section id="experience" class="divider-top" style="margin-top:56px;">
     <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Work <span>Experience</span></h2></div>
 
     <div class="job">
       <div><div class="job-when">Jun 2023 – Nov 2024</div></div>
       <div>
         <div class="job-org">White House India</div>
-        <div class="job-role">Data &amp; Software Intern — Chennai, India</div>
+        <div class="job-role">Software Engineer, Data — Chennai, India</div>
         <ul>
-          <li>Built a cross-system reconciliation module (Python, RapidFuzz, SQL Server) that fuzzy-matched inventory and dispatch records against SAP ERP logs, reaching 92% matching accuracy.</li>
-          <li>Engineered backend ETL pipelines and validation workflows (Python, SQL Server, Pandas) across 12K+ manufacturing and shipment records, automating schema validation, anomaly detection, and data quality checks.</li>
-          <li>Built Power Platform and script-driven automations for inventory reconciliation and vendor shortage alerts, auto-logging defects to SharePoint and cutting month-end auditing from 24 hours to 3.</li>
-          <li>Developed analytical data models, SQL monitoring views, and Power BI dashboards tracking line efficiency, defect rates, and cutting wastage for 5+ plant managers.</li>
+          <li>Built Python and SQL data-processing pipelines for 12K+ inventory and shipment records, replacing manual workflows and reducing downstream data corrections by 25% through automated processing and standardized error handling.</li>
+          <li>Engineered SQL transformation workflows using CTEs, complex joins, and window functions to integrate multi-source manufacturing data into centralized relational models.</li>
+          <li>Automated schema monitoring and data-quality validation in Python, reducing manual reporting effort from 10 to 6.5 hours per cycle — a 35% reduction in reporting overhead.</li>
         </ul>
       </div>
     </div>
@@ -415,13 +408,12 @@
     <div class="job">
       <div><div class="job-when">Mar 2023 – May 2023</div></div>
       <div>
-        <div class="job-org">NASSCOM</div>
-        <div class="job-role">Developer Intern, AI / NLP — Chennai, India</div>
+        <div class="job-org">National Association of Software and Service Companies (NASSCOM)</div>
+        <div class="job-role">Developer Intern — AI / NLP — Chennai, India</div>
         <ul>
-          <li>Engineered semantic retrieval using DistilBERT sentence embeddings with cosine similarity ranking and a fuzzy-match fallback, lifting correct-match rate from 78% to 90% by diagnosing out-of-scope queries that were returning false positives.</li>
+          <li>Built and deployed an AI FAQ chatbot on Telegram for FutureSkills Prime, resolving learner queries on courses, certifications, fees, and account management with 90% match accuracy across 500 test queries.</li>
+          <li>Engineered semantic retrieval using DistilBERT sentence embeddings with cosine similarity ranking and a FuzzyWuzzy fallback, lifting correct-match rate from 78% to 90% by diagnosing out-of-scope queries returning false positives across a curated 240-pair FAQ knowledge base.</li>
           <li>Precomputed and cached the full embedding matrix at startup instead of encoding per request, cutting per-query latency from 280ms to 25ms and removing redundant model inference at scale.</li>
-          <li>Built and deployed the resulting FAQ assistant on Telegram for FutureSkills Prime, resolving learner queries on courses, certifications, fees, and account management at 90% match accuracy across 500 test queries.</li>
-          <li>Curated a 240-pair knowledge base by auditing the platform's production chatbot, auto-detecting source encoding with Chardet to eliminate ingestion failures across inconsistently encoded files.</li>
         </ul>
       </div>
     </div>
@@ -432,8 +424,8 @@
         <div class="job-org">VEI Technologies Inc.</div>
         <div class="job-role">Business and Software Engineering Intern — Chennai, India</div>
         <ul>
-          <li>Built a Python and SQL pipeline across 1,000+ student records to surface drop-off points, engagement trends, and learner outcomes used to guide program changes.</li>
-          <li>Automated recurring operational reporting by integrating SQL pulls with scheduled refresh and reusable query templates, eliminating manual compilation and saving 3 hrs/week.</li>
+          <li>Built a Python and SQL pipeline across 1,000+ student records to consolidate enrollment and engagement data, replacing manual spreadsheet workflows and surfacing course-level drop-off points to guide program and retention decisions.</li>
+          <li>Automated recurring operational reporting by integrating SQL data pulls with Power BI refresh and reusable Power Query templates, eliminating manual compilation and saving ~3 hrs/week.</li>
         </ul>
       </div>
     </div>
@@ -441,7 +433,7 @@
 
   <section id="backend" class="divider-top">
     <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Backend <span>Services</span></h2></div>
-    <p class="sec-intro">Services where the interesting part isn't the happy path. Authorization enforced twice, errors with one shape, pagination that survives a rebuild mid-scroll, and behaviour that stays predictable when a dependency goes down.</p>
+    <p class="sec-intro">Anyone can expose the data. Deciding who gets to see it, and proving afterwards who did, is the harder half of the same service.</p>
     <div class="proj-grid">
 
       <div class="card clickable" tabindex="0" onclick="openProject('evidence')" onkeydown="cardKey(event,'evidence')">
@@ -532,7 +524,7 @@
 
   <section id="models" class="divider-top">
     <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Retrieval &amp; <span>Models</span></h2></div>
-    <p class="sec-intro">Models can answer the question. The interesting work is making the whole system report honestly on how often it got it right.</p>
+    <p class="sec-intro">Models can answer the question. Working out how often they got it right is the harder half, and it's where most of the effort in these projects went.</p>
     <div class="proj-grid">
 
       <div class="card clickable" tabindex="0" onclick="openProject('clinical')" onkeydown="cardKey(event,'clinical')">
@@ -620,7 +612,7 @@
 
   <section id="platforms" class="divider-top">
     <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Data <span>Platforms</span></h2></div>
-    <p class="sec-intro">The infrastructure the systems above run on — streaming ingestion, warehouse modeling, and analytics built from real healthcare, transactional, and commercial sources.</p>
+    <p class="sec-intro">Analytics is the visible part. Getting trustworthy tables to run it on is the longer job, and that's what these projects are.</p>
     <div class="repo-list">
       <div class="repo-row">
         <div><span class="repo-name">Real-Time Subscription Data Platform</span> <span class="repo-lang">· Debezium CDC → Kafka → Spark Streaming → Delta Lake → dbt, on Airflow. Writing the runbook and pinning models against the seed catalog surfaced real bugs — including plan names and prices that had made every MRR figure wrong since the model was written. Fixes land as separate commits, visible in git log.</span></div>
@@ -653,20 +645,20 @@
     <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Skills &amp; <span>Stack</span></h2></div>
     <div class="skill-grid">
       <div class="skill-cat">
-        <h4>Backend &amp; services</h4>
-        <p>Python, FastAPI, Pydantic, SQLAlchemy, Alembic, JWT auth and RBAC, PostgreSQL (Row-Level Security, pgvector), Redis, DuckDB, SQL Server, SQLite, REST and RFC 7807 API design, keyset pagination, circuit breakers, background workers, Docker, Docker Compose, GitHub Actions, pytest, ruff, mypy, Prometheus, Linux</p>
+        <h4>Backend</h4>
+        <p>Python, FastAPI, Pydantic, SQLAlchemy, Alembic, PostgreSQL, Redis, DuckDB, JWT auth, Docker, GitHub Actions, pytest</p>
       </div>
       <div class="skill-cat">
-        <h4>AI &amp; machine learning</h4>
-        <p>PyTorch, Keras, Hugging Face Transformers, PEFT / QLoRA, LangGraph, LangChain, BM25, sentence embeddings, pgvector and ChromaDB, RAG architecture, agent tool design, evaluation harness design, scikit-learn, XGBoost</p>
+        <h4>Data engineering</h4>
+        <p>PySpark, Kafka, Debezium, Delta Lake, dbt, Snowflake, Airflow, AWS S3, Power BI</p>
       </div>
       <div class="skill-cat">
-        <h4>Data engineering &amp; cloud</h4>
-        <p>PySpark, Apache Kafka, Debezium, Delta Lake, dbt, Snowflake, Snowpark, Apache Airflow, AWS (S3, Glue, IAM), dimensional and star-schema modeling, query-plan analysis and indexing, BCNF normalization, Power BI</p>
+        <h4>AI &amp; retrieval</h4>
+        <p>PyTorch, Hugging Face, QLoRA, LangGraph, BM25, pgvector, ChromaDB, RAG, evaluation harness design</p>
       </div>
       <div class="skill-cat">
-        <h4>Healthcare domain</h4>
-        <p>FHIR R4 bulk exports and bundle ingestion, CMS DE-SynPUF claims, CMS IQR and HVBP quality reporting, X12 CARC denial codes, clinical-data audit logging, PHI redaction before external generation, HIPAA-aware handling of synthetic and de-identified data</p>
+        <h4>Healthcare data</h4>
+        <p>FHIR R4, CMS claims and quality reporting, CARC denial codes, audit logging, PHI redaction</p>
       </div>
     </div>
   </section>
@@ -696,7 +688,7 @@
   <footer id="contact">
     <div class="foot-row">
       <div>
-        <div class="foot-title">Let's build something that measures itself.</div>
+        <div class="foot-title">If this is the kind of work you're hiring for, let's talk.</div>
         <div class="foot-sub">Buffalo, NY · Open to Backend / Software / AI Engineer roles</div>
       </div>
       <div class="foot-links">
